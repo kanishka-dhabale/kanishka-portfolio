@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kanishka Dhabale - B.Tech A&R student and aspiring web developer.">
+  <title>Kanishka Dhabale | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0a12;
+      --surface: #151321;
+      --purple: #a78bfa;
+      --text: #f5f3ff;
+      --muted: #aaa5bb;
+      --border: #29253a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11,10,18,.94);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--purple);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple);
+    }
+
+    section {
+      padding: 90px 10%;
+      scroll-margin-top: 65px;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background:
+        radial-gradient(ellipse at 80% 30%, #30205a55, transparent 45%);
+    }
+
+    .tag {
+      color: var(--purple);
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.15;
+      margin: 18px 0;
+    }
+
+    h1 span, h2 span {
+      color: var(--purple);
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 12px 25px;
+      border-radius: 8px;
+      background: var(--purple);
+      color: #100b1d;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #c4b5fd;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      max-width: 750px;
+    }
+
+    .education {
+      margin-top: 30px;
+      padding: 25px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      max-width: 750px;
+    }
+
+    .education h3 {
+      color: var(--purple);
+    }
+
+    .education p {
+      color: var(--muted);
+      margin-top: 7px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+    }
+
+    .skill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: 10px;
+      text-align: center;
+      transition: .3s;
+    }
+
+    .skill:hover {
+      border-color: var(--purple);
+      transform: translateY(-5px);
+    }
+
+    .skill span {
+      color: var(--purple);
+      font-weight: 600;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      max-width: 650px;
+    }
+
+    .project-card h3 {
+      color: var(--purple);
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+    }
+
+    .contact-text {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      color: var(--purple);
+      border: none;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    @media(max-width: 650px) {
+      nav {
+        padding: 16px 6%;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: var(--surface);
+        padding: 25px;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      section {
+        padding: 70px 7%;
+      }
+
+      h2 {
+        font-size: 29px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#home" class="logo">KD.</a>
+
+    <button class="menu-btn" id="menuBtn"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="tag">Welcome to my portfolio</div>
+
+    <h1>Hi, I'm <span>Kanishka<br>Dhabale.</span></h1>
+
+    <p>
+      A second-year B.Tech A&R student passionate about
+      programming, web development and technology.
+      I'm always curious to learn and build something new.
+    </p>
+
+    <a href="#about" class="btn">Explore My Portfolio →</a>
+  </section>
+
+  <section id="about">
+    <div class="tag">Get to know me</div>
+    <h2>About <span>Me</span></h2>
+
+    <p class="about-text">
+      I'm Kanishka Dhabale, currently pursuing my Bachelor
+      of Technology in A&R at Sandip Institute of Technology
+      and Research Centre, Nashik.
+
+      I have a foundation in C, C++, Python and JavaScript,
+      along with knowledge of HTML and CSS. I also enjoy
+      exploring embedded systems through Arduino and ESP8266.
+
+      My goal is to strengthen my technical skills and gain
+      practical experience by working on real-world projects.
+    </p>
+
+    <div class="education">
+      <h3>Education</h3>
+      <p><strong>B.Tech – A&R</strong></p>
+      <p>Sandip Institute of Technology and Research Centre</p>
+      <p>Second Year | CGPA: 6.9</p>
+      <p>Nashik, Maharashtra</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="tag">What I know</div>
+    <h2>Technical <span>Skills</span></h2>
+
+    <div class="skills-grid">
+      <div class="skill"><span>C</span></div>
+      <div class="skill"><span>C++</span></div>
+      <div class="skill"><span>Python</span></div>
+      <div class="skill"><span>JavaScript</span></div>
+      <div class="skill"><span>HTML5</span></div>
+      <div class="skill"><span>CSS3</span></div>
+      <div class="skill"><span>Arduino</span></div>
+      <div class="skill"><span>ESP8266</span></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="tag">My work</div>
+    <h2>My <span>Projects</span></h2>
+
+    <div class="project-card">
+      <h3>Projects coming soon!</h3>
+      <p>
+        I'm currently developing my project portfolio.
+        New projects and technical experiments will be
+        showcased here as I build them.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="tag">Let's connect</div>
+    <h2>Contact <span>Me</span></h2>
+
+    <p class="contact-text">
+      Interested in collaborating or discussing technology?
+      Feel free to connect with me.
+    </p>
+
+    <!-- Replace with your actual email address -->
+    <a class="btn" href="mailto:YOUR_EMAIL@example.com">
+      Send Me an Email →
+    </a>
+  </section>
+
+  <footer>
+    © 2026 Kanishka Dhabale | Personal Portfolio
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("active");
+      menuBtn.setAttribute("aria-expanded", isOpen);
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+
+</body>
+</html>
